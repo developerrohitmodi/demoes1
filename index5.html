@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash-based Routing</title>
+</head>
+<body>
+
+    <nav>
+        <a href="#home" onclick="navigateTo('home')">Home</a>
+        <a href="#about" onclick="navigateTo('about')">About</a>
+        <a href="#contact" onclick="navigateTo('contact')">Contact</a>
+    </nav>
+
+    <div id="home" class="page">
+        <h1>Home Page</h1>
+    </div>
+    <div id="about" class="page">
+        <h1>About Page</h1>
+    </div>
+    <div id="contact" class="page">
+        <h1>Contact Page</h1>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+            // Show the selected page
+            document.getElementById(page).style.display = 'block';
+            // Update the hash
+            window.location.hash = page;
+        }
+
+        // Handle the page load and hash change
+        window.onload = function() {
+            const page = window.location.hash.substring(1) || 'home'; // Default to home
+            navigateTo(page);
+        };
+
+        // To handle hash changes
+        window.onhashchange = function() {
+            const page = window.location.hash.substring(1) || 'home';
+            navigateTo(page);
+        };
+    </script>
+</body>
+</html>

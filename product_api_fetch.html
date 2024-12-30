@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        #loader{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #loader img{
+            max-width: 100px;
+            width: 100%;
+        }
+        .heading_main{
+            text-align: center;
+            padding: 40px 0;
+        }
+        .main{
+            max-width: 1320px;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .filterbox{
+            flex-basis: 23%;
+        }
+        .product{
+            flex-basis: 75%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .categortList{
+            margin-top: 20px;
+        }
+        .categortList label{
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+            padding: 5px 0;
+            background: #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            border-radius: 5px;
+            text-transform: capitalize;
+        }
+        .product_items{
+            flex-basis: 31%;
+            margin-bottom: 35px;
+            box-shadow: 0 0 10px 2px #ccc;
+            padding: 15px;
+            border-radius: 15px;
+        }
+        .product_items img{
+            width: 100%;
+            aspect-ratio: 1;
+            padding: 10px;
+        }
+        .product_items p{
+            padding: 10px;
+        }
+        .product_items h3{
+            padding: 10px;
+        }
+        .product_items h4{
+            padding: 10px;
+        }
+        .placeholder_main1 {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+/* Placeholder Layout */
+.placeholder_image {
+    display: block;
+    border-radius: 3px !important;
+}
+/* Placeholder Styles */
+.placeholder {
+    background: linear-gradient(to right, #e0e0e0 0%, #f8f8f8 50%, #e0e0e0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 4px;
+}
+/* Product Image Placeholder */
+.product_image_section .placeholder {
+    width: 100%;
+    height: 150px;
+}
+/* Placeholder for Product Details */
+.placeholder_content {
+    padding: 10px;
+}
+.placeholder_content .placeholder {
+    height: 15px;
+    margin: 10px 0;
+}
+.placeholder_content .placeholder.short {
+    width: 30%;
+}
+.placeholder_content .placeholder.medium {
+    width: 50%;
+}
+.placeholder_content .placeholder.long {
+    width: 80%;
+}
+
+/* Placeholder Animation Keyframes */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+        @media screen and (max-width: 768px){
+            .heading_main{
+                padding: 10px 0 0 0;
+            }
+            .main{
+                flex-direction: column;
+                padding: 10px 20px 20px 20px;
+            }
+            .filterbox{
+                flex-basis: 100%;
+            }
+            .product{
+                flex-basis: 100%;
+            }
+            .product_items{
+                flex-basis: 48%;
+                margin-bottom: 15px;
+                padding: 10px;
+                box-shadow: 0 0 10px 0px #ccc;
+            }
+            .product_items img{
+                aspect-ratio: 1;
+            }
+            .product_items p{
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+            .product_items h3{
+                padding: 5px 10px;
+                font-size: 13px;
+            }
+            .product_items h4{
+                padding: 5px 10px;
+                font-size: 13px;
+            }
+            .filter_section{
+                height:46px;
+                overflow: hidden;
+                transition: height 0.5s;
+                margin-bottom: 20px;
+                padding: 1px 2px;
+            }
+            .filter_section.show{
+                height: 250px;
+            }
+            .filter_section h1{
+                font-size: 17px;
+                font-weight: normal;
+            }
+            .categortList{
+                margin-top: 0;
+            }
+            .filter_section label{
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+                background: #fff;
+                padding: 10px;
+                margin-bottom: 8px;
+                margin-top: 3px;
+                border: 2px solid #eee;
+                border-radius: 5px;
+                text-transform: capitalize;
+                box-shadow: 0 0 px 1px #ccc;
+
+             }
+             
+             .categortList label{
+                margin-bottom: 8px;
+             }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading_main">Our Product</h1>
+    <div class="main">
+        <div class="filterbox">
+            <!-- <h2>Category</h2> -->
+            <div class="filter_section">
+                <label for="">
+                    Filter Data
+                </label>
+                <div class="categortList">
+                
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            
+        </div>
+    </div>
+
+    <div id="loader" style="display: none;">
+        <img src="/loading-buffering.gif" alt="">
+    </div>
+
+    <script>
+        let productDiv = document.querySelector(".product");
+let categortList = document.querySelector(".categortList");
+let allCat = [];
+let loader = document.getElementById("loader");
+
+// Function to show placeholders
+let displayPlaceholders = () => {
+    productDiv.innerHTML = "";
+    for (let i = 0; i < 8; i++) {
+        productDiv.innerHTML += `
+            <div class="product_items placeholder_main1">
+                <div class="product_image_section placeholder_image">
+                    <div class="placeholder"></div>
+                </div>
+                <div class="product_details placeholder_content">
+                    <div class="placeholder long"></div>
+                    <div class="placeholder medium"></div>
+                    <div class="placeholder short"></div>
+                    <div class="placeholder medium"></div>
+                </div>  
+            </div>`;
+    }
+};
+
+// Function to display products
+let displayProduct = async (allCheckCat = []) => {
+    // Show placeholders
+    displayPlaceholders();
+
+    // Fetch product data
+    let product = await fetch('https://fakestoreapi.com/products');
+    let finalproduct = await product.json();
+
+    // Generate category list
+    finalproduct.forEach(element => {
+        if (!allCat.includes(element.category)) {
+            categortList.innerHTML += `
+                <label>
+                    <input type="checkbox" onclick="categoryFilter()" value="${element.category}"> ${element.category}
+                </label>`;
+            allCat.push(element.category);
+        }
+    });
+
+    // Filter and display products
+    productDiv.innerHTML = "";
+    finalproduct.forEach(element => {
+        if (allCheckCat.length === 0 || allCheckCat.includes(element.category)) {
+            productDiv.innerHTML += `
+                <div class="product_items">
+                    <img src="${element.image}" alt="">
+                    <h4>${element.category}</h4>
+                    <p>Price Rs. ${element.price} | ${element.rating.rate}</p>
+                    <h3>${element.title}</h3>
+                </div>`;
+        }
+    });
+};
+
+// Category filter function
+let categoryFilter = () => {
+    let checkInput = document.querySelectorAll("input[type='checkbox']");
+    let checkdata = [];
+    checkInput.forEach((e) => {
+        if (e.checked) {
+            checkdata.push(e.value);
+        }
+    });
+    displayProduct(checkdata);
+};
+
+// Toggle filter section
+let filter_section = document.querySelector(".filter_section");
+let filter_section_label = document.querySelector(".filter_section label");
+let categortList_checkbox = document.querySelector(".categortList");
+filter_section_label.addEventListener("click", () => {
+    filter_section.classList.toggle("show");
+});
+categortList_checkbox.addEventListener("click", () => {
+    filter_section.classList.remove("show");
+});
+
+// Initial call to display products
+displayProduct();
+
+    </script>
+</body>
+</html>

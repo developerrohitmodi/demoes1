@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">Here we load data</p>
+    <button class="btn1">Resolve Btn</button>
+    <button class="btn2">Reject Btn</button>
+    <img src="" alt="">
+
+    <!-- <form id="myForm">
+        Title <input type="text" id="titleText"> <br><br>
+        Body <input type="text" id="bodyText"> <br><br>
+        User Id <input type="text" id="userid"> <br><br>
+        <input type="submit" id="saveForm"> <br><br>
+    </form> -->
+
+    <script>
+
+
+        console.dir(document)
+
+
+    //    console.log( window.location.reload())
+        // setTimeout(() => {
+        //     console.log(window.location.href);
+        // },2000)
+
+            // const user = {
+            //     firstName: "Anurag",
+            //     lastName: "Singh",
+            //     age: 25,
+            //     address: {
+            //         city: "Delhi"
+            //     },
+            //     getFullName: function(){
+            //         return user.firstName + " " + user.lastName;
+            //     }
+            // }
+
+            // const a = "city";
+
+            // console.log(user.address && user.address.city);
+            // console.log(user.address?.[a]);
+            // console.log(user.getFullName?.());
+            // if(user.address){
+            //     console.log(user.address.city);
+            // }
+            
+
+
+
+            // async function makeRequest(){
+            //     const url = 'https://dummyjson.com/products';
+            //     const respone = await fetch(url);
+            //     console.log(respone);
+            //     console.log("Hii..")
+            // }
+            // function number(){
+            //     return 5+6;
+            // }
+            // number()
+
+           
+
+
+            // fetch('https://dummyjson.com/products/add', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({
+            //         title: 'BMW Pencil',
+            //         category: "stasonery",
+            //     })
+            // })
+            // .then(res => res.json())
+            // .then(console.log)
+            // .catch((err) => {
+            //     console.log(err);
+            // })
+        
+
+
+            //  function makeHttpRequest(method,url){
+            //     const xhr = new XMLHttpRequest();
+            //     xhr.responseType = "json";
+            //     const promise = new Promise((resolve,reject) => {
+            //         xhr.addEventListener("load",() => {
+            //             resolve(xhr.response);
+            //         })
+            //         xhr.addEventListener("error",() => {
+            //             console.log("Hii..");
+            //             reject("Request Failed")
+            //         })
+            //     })
+            //     xhr.open(method,url);
+            //     xhr.send();
+
+            //     return promise;
+            // }
+
+            // makeHttpRequest("GET","https://dummyjson.com/users")
+            // .then((usersData) => makeHttpRequest("GET",`https://dummyjson.com/posts/user/${usersData.users[0].id}`))
+            // .then((postsData) => makeHttpRequest("GET",`https://dummyjson.com/comments/post/${postsData.posts[0].id}`))
+            // .then((commentsData) => makeHttpRequest("GET",`https:dummyjson.com/users/${commentsData.comments[0].user.id}`))
+            // .then((userData) => console.log(userData))
+            // .catch((err) => {
+            //     console.log(err);   
+            // })
+
+            // const button1 = document.querySelector(".btn1");
+            // const button2 = document.querySelector(".btn2");
+            // const p = new Promise((resolve,reject) => {
+            //     button1.addEventListener("click", () => {
+            //         resolve("Promise Resolve");
+            //     })
+            //     button2.addEventListener("click", () => {
+            //         reject("Promise Rejected");
+            //     })
+            // });
+            // p.then((data) => {
+            //     console.log(data);
+            // }).catch((err) => {
+            //     console.log(err);
+            // })
+
+
+            // function makeHttpRequest(method,url,callback){
+            //     const xhr = new XMLHttpRequest();
+            //     xhr.responseType = "json";
+            //     xhr.addEventListener("load",() => {
+            //         callback(xhr.response);
+            //     })
+            //     xhr.open(method,url);
+            //     xhr.send();
+            // }
+
+            // makeHttpRequest("GET",'https://dummyjson.com/users',(usersData) => {
+            //     makeHttpRequest("GET",`https://dummyjson.com/posts/user/${usersData.users[0].id}`,(postsData) => {
+            //         makeHttpRequest("GET",`https://dummyjson.com/comments/post/${postsData.posts[0].id}`,(commentsData) => {
+            //             makeHttpRequest("GET",`https://dummyjson.com/users/${commentsData.comments[0].user.id}`,(userdata) => {
+            //                 console.log(userdata);
+            //             });
+            //         });
+            //     });
+            // });
+
+
+
+        // const button = document.querySelector("button");
+        // const img = document.querySelector("img");
+
+        // button.addEventListener("click",() => {
+        //     const xhr = new XMLHttpRequest();
+        //     xhr.responseType = "json";
+        //     xhr.addEventListener("load",() => {
+        //         console.log(xhr.response.message);
+        //         img.src= xhr.response.message;
+        //     })
+        //     xhr.open("GET","https://dog.ceo/api/breeds/image/random")
+        //     xhr.send();
+        // })
+
+        
+
+        // const button = document.querySelector("button");
+        // const img = document.querySelector("img");
+        // button.addEventListener("click",() => {
+        //     const xhr = new XMLHttpRequest();
+        //     xhr.responseType = "json";
+        //     xhr.addEventListener("load",() => {
+        //         console.log(xhr.response.message);
+        //         img.src = xhr.response.message;
+        //     })
+        //     xhr.open("GET","https://dog.ceo/api/breeds/image/random");
+        //     xhr.send();
+        // })
+
+
+
+        // const user = {
+        //     firstName: "Anurag",
+        //     lastName: "Singh",
+        //     fullName(){
+                
+        //         function getAge(){
+        //             console.log("Getting Age");
+        //             console.log(this);
+        //         }
+        //         getAge();
+        //         console.log(this);
+        //     }
+        // }
+        
+
+        // class CreateUser {
+        //     #age;
+        //     constructor(firstName,lastName,age){
+        //         this.firstName = firstName
+        //         this.lastName = lastName
+        //         this.#age = age
+        //     }
+        //     static hi = "Hello World";
+        //     getBirthYear(){
+        //         return new Date().getFullYear() - this.#age;
+        //     } 
+        //     #getFullName(){
+        //         return this.firstName + " " + this.lastName;
+        //     } 
+            
+        // }
+
+        // const user1 = new CreateUser("Anurag","Singh",22);
+        // const user2 = new CreateUser("Akash","Singh",12);
+
+
+        // createUser.commanMethod = {
+        //     getBirthYear: function(){
+        //     return new Date().getFullYear() - this.age;
+        //     }   
+        // };
+
+        
+        
+
+
+        // const user = {
+        //     firstName: "Anurag",
+        //     lastName: "Singh",
+        //     fullName(){
+        //         console.log("Getting...");
+        //         return `${this.firstName} ${this.lastName}`
+        //     },
+           
+        // }
+        // console.log(user.fullName);    
+
+        // class createUser{
+        //     constructor(firstname,lastName,age){
+        //         this.firstname = firstname;
+        //         this.lastname = lastName;
+        //         this.age = age;
+        //     }
+
+        //     static hi = "Hello";
+        //     getBirthYear(){
+        //         return new Date().getFullYear() - this.age;
+        //     }
+            
+        // }
+
+        // const user1 = new createUser("Rohit","Bhai",22);
+        // const user2 = new createUser("Karan","Bhai",25);
+
+
+        // function createUser(firstName,lastName,age){
+        //     this.firstName = firstName;
+        //     this.lastName = lastName;
+        //     this.age = age;
+        // }
+        // createUser.prototype.getBirthYear =  function(){
+        //     return new Date().getFullYear() - this.age;
+        // }
+        // let user1 = new createUser("Yahoo","Baba",22);
+        // let user2 = new createUser("Anurag","Singh",25);
+
+
+        
+
+        // try{
+        //    dfishf
+        // }catch(error){
+        //     // console.log("Error has occurred");
+        //     console.log(error.name);
+        //     console.log(error.message);
+        //     console.log(error.stack);
+        // }
+
+        // "use strict";
+        // var a = 10;
+        // console.log(a);
+        // function test(a,b,c){
+        //     console.log(a+b+c);
+        // }
+        // test(10,20,30);
+
+        // var x = ["Apple","Orange","Grapes"];
+        // let y =  x[Symbol.iterator]();
+        // y.next();
+        // y.next();
+        // y.next();
+
+        // let age = Symbol("age");
+        // let user = {
+        //     nameew: "Yahoo Baba",
+        //     class: "Btech"
+        // }
+        // user[age] = 25;
+        // user["gender"] = "male";
+        // for(let key in user){
+        //     console.log(key);
+        // }
+        // console.log(user);
+        // console.log(JSON.stringify(user));
+       
+
+        // async function test(){
+        //     try{
+        //         const response = await fetch("./student_data.json");  
+        //         const students = await response.json();
+        //         return students;
+        //     }catch(err){
+        //         console.log(err); 
+        //     }
+        // }
+        // test().then((res) => {
+        //     console.log(res);
+        // })
+        
+
+        // document.getElementById("saveForm").addEventListener("click",(e) => {
+        //     e.preventDefault();
+        //     var obj = {
+        //             title : document.getElementById("titleText").value,
+        //             body: document.getElementById("bodyText").value,
+        //             userId: document.getElementById("userid").value,
+        //     }
+        //     fetch("https://jsonplaceholder.typicode.com/posts",{
+        //         method : "POST",
+        //         body : JSON.stringify(obj),
+        //         headers : {
+        //             'Content-type' : 'application/json; charset=UTF-8',
+        //         },
+        //     })
+        //     .then(response => response.json())
+        //     .then((json) => console.log(json));
+        // });
+
+
+        // function loadData(){
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function(){
+        //         if(this.readyState == 4 && this.status == 200){
+        //             // document.getElementById("demo").innerHTML = this.responseText;
+        //             console.log(this.responseText);
+        //         }else if(this.readyState == 4 && this.status == 400){
+        //             document.getElementById("demo").innerHTML = "file not found.";
+        //         }
+
+        //     }
+        //     xhttp.open("GET","https://jsonplaceholder.typicode.com/posts",true);
+        //     xhttp.send();
+        // }
+
+
+        // let promiseCall = function(returnData,message) {
+        //     return function(resolve,reject){
+        //         setTimeout(() => {
+        //             console.log(`The ${message} promise has resolved`);
+        //             resolve(returnData);
+        //         },returnData * 100);
+        //     }
+        // };
+        // let p1 = new Promise(promiseCall(10,"First"));
+        // let p2 = new Promise(promiseCall(20,"Second"));
+        // let p3 = new Promise(promiseCall(30,"Third"));
+        // let p4 = new Promise(function(resolve,reject){
+        //     reject("The 4th promise has reject");
+        // });
+        // var total = 0;
+        // Promise.all([p1,p2,p3,p4]).then((result) => {
+        //     for(var i in result){
+        //         total += result[i];
+        //     }
+        //     console.log(`Results: ${result}`);
+        //     console.log(`Total: ${total}`);
+        // }).catch((error) => {
+        //     console.log(`Results: ${error}`);
+        // });
+    </script>
+    <!-- <script src="./script.js" type="module"></script> -->
+</body>
+</html>
